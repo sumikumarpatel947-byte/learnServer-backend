@@ -75,7 +75,7 @@ const seedClasses = async () => {
   try {
     // Connect to MongoDB
     console.log('Connecting to MongoDB...');
-    await mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/sercureDB');
+    await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/sercureDB');
 
     console.log('Connected to MongoDB successfully');
 

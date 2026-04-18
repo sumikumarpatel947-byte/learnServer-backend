@@ -5,6 +5,7 @@ const seedData = [
   {
     title: "21 Days Dincharya Program",
     level: "Beginner",
+    mode: "Online",
     image: "https://images.unsplash.com/photo-1774857491446-dfab0acd73a8?auto=format&fit=crop&w=800&q=80",
     price: "Rs 2,499",
     duration: "21 Days",
@@ -23,6 +24,7 @@ const seedData = [
   {
     title: "Power Yoga",
     level: "Intermediate",
+    mode: "Online",
     image: "https://images.unsplash.com/photo-1599901860903-17e6ed7083a0?auto=format&fit=crop&w=800&q=80",
     price: "Rs 1,999",
     duration: "1 Month",
@@ -37,6 +39,7 @@ const seedData = [
   {
     title: "Meditation & Mindfulness",
     level: "All Levels",
+    mode: "Online",
     image: "https://images.unsplash.com/photo-1588286840104-8957b019727f?auto=format&fit=crop&w=800&q=80",
     price: "Rs 1,499",
     duration: "1 Month",
@@ -55,6 +58,7 @@ const seedData = [
   {
     title: "Yoga for Weight Loss",
     level: "Intermediate",
+    mode: "Online",
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
     price: "Rs 1,799",
     duration: "45 minutes",
