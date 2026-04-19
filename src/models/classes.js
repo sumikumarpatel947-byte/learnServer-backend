@@ -53,12 +53,6 @@ const classSchema = new mongoose.Schema(
       type: String,
       required: true,
     }],
-    mode: {
-      type: String,
-      required: [true, 'Mode is required'],
-      enum: ['Online', 'Offline', 'Hybrid'],
-      default: 'Online',
-    },
     isActive: {
       type: Boolean,
       default: true,
