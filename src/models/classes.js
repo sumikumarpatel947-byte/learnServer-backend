@@ -10,7 +10,7 @@ const classSchema = new mongoose.Schema(
     level: {
       type: String,
       required: [true, 'Level is required'],
-      enum: ['Beginner', 'Intermediate', 'Advanced', 'All Levels'],
+      
     },
     image: {
       type: String,
