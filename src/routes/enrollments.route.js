@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Enrollment = require('../models/enrollments');
 
 // Save enrollment after payment
@@ -8,8 +9,8 @@ router.post('/save-enrollment', async (req, res) => {
     const { userId, classId, paymentId, orderId, amount } = req.body;
 
     const enrollment = new Enrollment({
-      userId,
-      classId,
+      userId: new mongoose.Types.ObjectId(userId),
+      classId: new mongoose.Types.ObjectId(classId),
       paymentId,
       orderId,
       amount
