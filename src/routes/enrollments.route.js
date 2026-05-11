@@ -8,6 +8,8 @@ router.post('/save-enrollment', async (req, res) => {
   try {
     const { userId, classId, paymentId, orderId, amount } = req.body;
 
+    console.log('Received enrollment request:', { userId, classId, paymentId, orderId, amount });
+
     const enrollment = new Enrollment({
       userId: new mongoose.Types.ObjectId(userId),
       classId: new mongoose.Types.ObjectId(classId),
@@ -16,16 +18,24 @@ router.post('/save-enrollment', async (req, res) => {
       amount
     });
 
+    console.log('Created enrollment object:', enrollment);
+
     await enrollment.save();
 
+    console.log('Enrollment saved successfully:', enrollment);
     res.json({ success: true, enrollment });
   } catch (error) {
     console.error('Error saving enrollment:', error);
+    console.error('Error details:', {
+      name: error.name,
+      message: error.message,
+      code: error.code
+    });
     if (error.code === 11000) {
       // Duplicate key error - user already enrolled
       res.json({ success: false, error: 'Already enrolled in this class' });
     } else {
-      res.status(500).json({ success: false, error: 'Failed to save enrollment' });
+      res.status(500).json({ success: false, error: 'Failed to save enrollment', details: error.message });
     }
   }
 });
