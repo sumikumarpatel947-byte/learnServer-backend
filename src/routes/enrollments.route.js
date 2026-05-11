@@ -6,15 +6,20 @@ const Enrollment = require('../models/enrollments');
 // Save enrollment after payment
 router.post('/save-enrollment', async (req, res) => {
   try {
-    const { userId, classId, paymentId, orderId, amount } = req.body;
+    const { userId, classId, paymentId, orderId, amount, testMode } = req.body;
 
-    console.log('Received enrollment request:', { userId, classId, paymentId, orderId, amount });
+    console.log('Received enrollment request:', { userId, classId, paymentId, orderId, amount, testMode });
+
+    // In test mode, skip payment verification
+    if (testMode) {
+      console.log('Test mode: skipping payment verification');
+    }
 
     const enrollment = new Enrollment({
       userId: new mongoose.Types.ObjectId(userId),
       classId: new mongoose.Types.ObjectId(classId),
-      paymentId,
-      orderId,
+      paymentId: paymentId || `test_${Date.now()}`,
+      orderId: orderId || `order_test_${Date.now()}`,
       amount
     });
 
